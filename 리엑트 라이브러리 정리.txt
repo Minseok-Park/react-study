@@ -1,0 +1,11 @@
+<리액트 핵심 모듈>
+
+1. 리액트 컴포넌트 => HTML element 연결
+import ReactDOM from "react-dom";
+
+* 실제로 React의 컴포넌트를 HTML element와 연결
+=> ReactDom의 render()함수!!
+
+2. 리액트 컴포넌트 생성
+import React from "react";
+
