@@ -1,15 +1,10 @@
 import React from "react";
-import Hello from "./hello";
 import "./app.css";
-import Child from "./child";
+import Counter from "./components/counter";
+import InputSample from "./components/inputSample";
 
 function App() {
-  return (
-    <Child>
-      <Hello name="react" color="red" />
-      <Hello color="pink" />
-    </Child>
-  );
+  return <InputSample />;
 }
 
 export default App;
