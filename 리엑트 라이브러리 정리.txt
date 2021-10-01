@@ -9,3 +9,18 @@ import ReactDOM from "react-dom";
 2. 리액트 컴포넌트 생성
 import React from "react";
 
+<JSX 문법이란?>
+React 생김새를 정의할 때 사용하는 문법 => 
+(Babel이 자바스크립트 코드로 변화시켜준다)
+
+1. 태그를 꼭 닫아줘야 한다.
+2. 2개 이상의 태그는 꼭 하나의 태그로 감싸줘야 한다.
+3. 정의한 js의 값을 보여주고 싶을 때는 중괄호를 이용
+4. style 정의할 때는 객체 형태로 만들어야 한다.
+5. css class를 이용할 때는 className = "클래스 이름"
+
+<Props란?>
+property (속성), 정의한 값들을 전달해주는 것
+컴포넌트.defaultProps => props가 누락되었을 때 기본적으로 사용할 값 정의
+children props => 태그와 태그 사이의 내용들을 나타낼 때 사용
+
