@@ -27,8 +27,12 @@ children props => 태그와 태그 사이의 내용들을 나타낼 때 사용
 <조건부 렌더링>
 특정 조건에 따라 값을 다르게 보여주는 것을 의미
 
+<배열>
+key 값이 있어야 배열을 효과적으로 렌더링 할 수 있다.
+
 counter.jsx => useState 활용
 linputSample.jsx => useState & input 값 변경 
 inputSample.jsx => spread문법 활용하여 불변성 지키면서 state update하기!
+userList.jsx => 배열 렌더링하기
 
 

@@ -1,9 +1,9 @@
 import React from "react";
 import "./app.css";
-import InputSample from "./components/inputSample";
+import UserList from "./components/userList";
 
 function App() {
-  return <InputSample />;
+  return <UserList />;
 }
 
 export default App;

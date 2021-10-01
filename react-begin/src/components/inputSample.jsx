@@ -1,11 +1,13 @@
 import React from "react";
-import { useState } from "react/cjs/react.development";
+import { useState, useRef } from "react";
 
 const InputSample = (props) => {
   const [info, setInfo] = useState({
     name: "",
     nickname: "",
   });
+
+  const nameRef = useRef();
 
   const { name, nickname } = info;
 
@@ -22,6 +24,7 @@ const InputSample = (props) => {
       name: "",
       nickname: "",
     });
+    nameRef.current.focus();
   };
 
   return (
@@ -32,6 +35,7 @@ const InputSample = (props) => {
         placeholder="이름"
         onChange={onChange}
         value={name}
+        ref={nameRef}
       />
       <input
         name="nickname"
