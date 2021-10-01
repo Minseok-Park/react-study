@@ -29,5 +29,6 @@ children props => 태그와 태그 사이의 내용들을 나타낼 때 사용
 
 counter.jsx => useState 활용
 linputSample.jsx => useState & input 값 변경 
+inputSample.jsx => spread문법 활용하여 불변성 지키면서 state update하기!
 
 
