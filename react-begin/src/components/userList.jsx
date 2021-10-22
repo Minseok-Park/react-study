@@ -1,33 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect, memo } from "react";
 
-const User = ({ user, onRemove, onToggle }) => {
+const User = memo(({ user, onRemove, onToggle }) => {
   const { username, email, id, active } = user;
-
-  useEffect(() => {
-    console.log("user 값이 설정됨");
-    console.log(user);
-    return () => {
-      console.log("user 값이 바뀌기 전");
-      console.log(user);
-    };
-  }, [user]);
 
   return (
     <div>
       <b
-        style={{
-          color: active ? "green" : "black",
-          cursor: "pointer",
-        }}
         onClick={() => onToggle(id)}
+        style={{ color: active ? "green" : "black", cursor: "pointer" }}
       >
         {username}
       </b>
-      <span>{email}</span>
+      &nbsp;
+      <span>({email})</span>
       <button onClick={() => onRemove(id)}>삭제</button>
     </div>
   );
-};
+});
 
 const UserList = ({ users, onRemove, onToggle }) => {
   return (
@@ -44,4 +33,4 @@ const UserList = ({ users, onRemove, onToggle }) => {
   );
 };
 
-export default UserList;
+export default memo(UserList);

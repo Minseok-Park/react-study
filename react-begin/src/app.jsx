@@ -1,7 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useCallback } from "react";
 import "./app.css";
-import CreateUser from "./components/CreateUser";
 import UserList from "./components/userList";
+import CreateUser from "./components/CreateUser";
 
 function App() {
   const [inputs, setInputs] = useState({
@@ -10,66 +10,69 @@ function App() {
   });
 
   const { username, email } = inputs;
+
+  const onChange = useCallback(
+    (event) => {
+      const { name, value } = event.target;
+      setInputs({
+        ...inputs,
+        [name]: value,
+      });
+    },
+    [inputs]
+  );
+
   const [users, setUsers] = useState([
     {
       id: 1,
-      username: "mark",
-      email: "mark@gmail.com",
+      username: "first",
+      email: "first@naver.com",
       active: true,
     },
     {
       id: 2,
-      username: "luna",
-      email: "luna@gmail.com",
+      username: "second",
+      email: "second@naver.com",
       active: false,
     },
     {
       id: 3,
-      username: "sam",
-      email: "sam@gmail.com",
+      username: "third",
+      email: "third@naver.com",
       active: false,
     },
   ]);
 
   const nextId = useRef(4);
 
-  const onChange = (event) => {
-    const { name, value } = event.target;
-    setInputs((inputs) => ({
-      ...inputs,
-      [name]: value,
-    }));
-  };
-
-  const onCreate = () => {
+  const onCreate = useCallback(() => {
     const user = {
       id: nextId.current,
       username,
       email,
     };
     setUsers((users) => [...users, user]);
-    setInputs((inputs) => ({
+    nextId.current += 1;
+    setInputs({
       username: "",
       email: "",
-    }));
+    });
+  }, [username, email]);
 
-    nextId.current += 1;
-  };
-
-  const onRemove = (userId) => {
+  const onRemove = useCallback((userId) => {
     setUsers((users) => users.filter((user) => user.id !== userId));
-  };
+  }, []);
 
-  const onToggle = (userId) => {
+  const onToggle = useCallback((userId) => {
     setUsers((users) =>
       users.map((user) =>
         user.id === userId ? { ...user, active: !user.active } : user
       )
     );
-  };
+  }, []);
 
   return (
-    <>
+    <div>
       <CreateUser
         username={username}
         email={email}
@@ -77,7 +80,7 @@ function App() {
         onCreate={onCreate}
       />
       <UserList users={users} onRemove={onRemove} onToggle={onToggle} />
-    </>
+    </div>
   );
 }
 
