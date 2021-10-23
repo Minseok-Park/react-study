@@ -1,6 +1,29 @@
-import React, { memo } from "react";
+import React, { memo, useContext, useRef } from "react";
+import { UserDispatch } from "../app";
+import useInputs from "./useInputs";
 
-const CreateUser = ({ username, email, onChange, onCreate }) => {
+const CreateUser = () => {
+  const dispatch = useContext(UserDispatch);
+  const nextId = useRef(4);
+  const [form, onChange, reset] = useInputs({
+    username: "",
+    email: "",
+  });
+  const { username, email } = form;
+
+  const onCreate = () => {
+    dispatch({
+      type: "CREATE_USER",
+      user: {
+        id: nextId.current,
+        username,
+        email,
+      },
+    });
+    reset();
+    nextId.current += 1;
+  };
+
   return (
     <div>
       <input
