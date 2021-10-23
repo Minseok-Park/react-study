@@ -1,16 +1,29 @@
-import React, { useState } from "react";
+import React, { useReducer } from "react";
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "INCREMENT":
+      return state + 1;
+    case "DECREMENT":
+      return state - 1;
+    default:
+      throw new Error(`Unhandled action`);
+  }
+}
 
 const Counter = (props) => {
-  const [number, setNumber] = useState(0);
+  const [number, dispatch] = useReducer(reducer, 0);
 
-  // 현재 값을 가져와서 비교하여 값을 증가하겠다
   const onIncrease = () => {
-    setNumber((number) => number + 1);
+    dispatch({
+      type: "INCREMENT",
+    });
   };
 
   const onDecrease = () => {
-    const minNumber = number < 1 ? 0 : number - 1;
-    setNumber((number) => minNumber);
+    dispatch({
+      type: "DECREMENT",
+    });
   };
 
   return (
