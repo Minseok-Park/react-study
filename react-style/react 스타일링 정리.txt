@@ -1,0 +1,6 @@
+1. scss 사용 => yarn add node-sass
+(버전 오류 발생 시 npm uninstall node-sass)
+=> npm install node-sass@4.14.1 설치하면 됨!
+
+2. yarn add classnames
+=> 다양한 옵션으로 하나의 className 을 생성할 수 있음!
