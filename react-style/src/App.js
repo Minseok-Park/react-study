@@ -53,7 +53,13 @@ function App() {
         <Button color="gray" size="large" fullWidth>
           Button
         </Button>
-        <Button color="pink" size="large" fullWidth>
+        <Button
+          color="pink"
+          size="large"
+          fullWidth
+          onClick={() => console.log("버튼 클릭")}
+          onMouseMove={() => console.log("마우스무브!")}
+        >
           Button
         </Button>
       </div>
