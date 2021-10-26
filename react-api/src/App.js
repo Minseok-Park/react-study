@@ -1,8 +1,9 @@
 import "./App.css";
 import Users from "./components/users";
+import UsersRedu from "./components/users_redu";
 
 function App() {
-  return <Users />;
+  return <UsersRedu />;
 }
 
 export default App;
