@@ -1,23 +1,32 @@
 import React from "react";
-import { Route, Link } from "react-router-dom";
-import About from "./components/about";
-import Home from "./components/home";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import About from "./component/about";
+import Home from "./component/home";
+import Profile from "./component/profile";
+import NotFound from "./component/notFound";
+import Links from "./component/links";
+import NavLinks from "./component/navLinks";
+import Login from "./component/login";
+
+const isLogin = false;
 
 function App() {
   return (
-    <div>
-      <ul>
-        <li>
-          <Link to="/">홈</Link>
-        </li>
-        <li>
-          <Link to="/about">소개</Link>
-        </li>
-      </ul>
-      <hr />
-      <Route path="/" component={Home} exact />
-      <Route path="/about" component={About} />
-    </div>
+    <BrowserRouter>
+      <Links />
+      <NavLinks />
+      <Switch>
+        <Route
+          path="/login"
+          render={() => (isLogin ? <Redirect to="/" /> : <Login />)}
+        />
+        <Route path="/profile/:id" component={Profile} />
+        <Route path="/profile" component={Profile} />
+        <Route path="/about" component={About} />
+        <Route path="/" component={Home} exact />
+        <Route component={NotFound} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
