@@ -3,8 +3,8 @@ const INCREASE = "counter/INCREASE";
 const DECREASE = "counter/DECREASE";
 
 export const setDiff = (diff) => ({ type: SET_DIFF, diff });
-export const setIncrease = () => ({ type: INCREASE });
-export const setDecrease = () => ({ type: DECREASE });
+export const increase = () => ({ type: INCREASE });
+export const decrease = () => ({ type: DECREASE });
 
 const initialState = {
   number: 0,
