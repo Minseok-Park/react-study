@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 
-const TodoItem = ({ todo, onToggle }) => {
+const TodoItem = memo(({ todo, onToggle }) => {
   return (
     <li
       style={{
@@ -11,9 +11,9 @@ const TodoItem = ({ todo, onToggle }) => {
       {todo.text}
     </li>
   );
-};
+});
 
-const TodoList = ({ todos, onToggle }) => {
+const TodoList = memo(({ todos, onToggle }) => {
   return (
     <ul>
       {todos.map((todo) => (
@@ -21,7 +21,7 @@ const TodoList = ({ todos, onToggle }) => {
       ))}
     </ul>
   );
-};
+});
 
 const Todos = ({ todos, onCreate, onToggle }) => {
   const [text, setText] = useState("");
@@ -48,4 +48,4 @@ const Todos = ({ todos, onCreate, onToggle }) => {
   );
 };
 
-export default Todos;
+export default memo(Todos);
