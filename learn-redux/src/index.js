@@ -10,20 +10,23 @@ import App from "./App";
 
 // const store = createStore(rootReducer, composeWithDevTools());
 import store from "./redux/store";
-import { addTodo, completeTodo, showComplete } from "./redux/action";
+import ReduxContext from "./contexts/reduxContext";
+// import { addTodo, completeTodo, showComplete } from "./redux/action";
 
 // state가 변경될 때마다 호출
-store.subscribe(() => {
-  console.log(store.getState());
-});
+// store.subscribe(() => {
+//   console.log(store.getState());
+// });
 
-store.dispatch(addTodo("할 일"));
-store.dispatch(completeTodo(0));
-store.dispatch(showComplete());
+// store.dispatch(addTodo("할 일"));
+// store.dispatch(completeTodo(0));
+// store.dispatch(showComplete());
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ReduxContext.Provider value={store}>
+      <App />
+    </ReduxContext.Provider>
   </React.StrictMode>,
 
   document.getElementById("root")
