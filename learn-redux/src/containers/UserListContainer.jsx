@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import UserList from "../components/userList";
-import { getUsersPromise, getUsersThunk } from "../redux/action";
+import { getUsersThunk } from "../redux/modules/users";
 
 const UserListContainer = (props) => {
   const users = useSelector((state) => state.users.data);
@@ -19,7 +19,7 @@ const UserListContainer = (props) => {
   //   }, [dispatch]);
 
   const getUsers = useCallback(() => {
-    dispatch(getUsersPromise());
+    dispatch(getUsersThunk());
   }, [dispatch]);
 
   return <UserList users={users} getUsers={getUsers} />;

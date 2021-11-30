@@ -1,12 +1,11 @@
 import "./App.css";
 import Users from "./components/users";
-import { UsersProvider } from "./components/usersContext";
-import UsersRedu from "./components/users_redu";
+import UsersProvider from "./components/usersContext";
 
 function App() {
   return (
     <UsersProvider>
-      <UsersRedu />
+      <Users />
     </UsersProvider>
   );
 }
