@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router";
+import WithRouterSample from "./WithRouterSample";
 
 const profileData = {
   minseok: {
@@ -27,6 +28,7 @@ const Profile = () => {
         {username} ({profile.name})
       </h3>
       <p>{profile.description}</p>
+      <WithRouterSample />
     </div>
   );
 };
